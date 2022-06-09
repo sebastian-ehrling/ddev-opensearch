@@ -3,7 +3,7 @@ services:
   opensearch:
     container_name: ddev-${DDEV_SITENAME}-opensearch
     hostname: ${DDEV_SITENAME}-opensearch
-    image: opensearchproject/opensearch:1.2
+    image: opensearchproject/opensearch:1.2.4
     expose:
       - "9200"
       - "9201"
