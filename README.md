@@ -4,6 +4,10 @@ Uses [opensearch official image](https://hub.docker.com/r/opensearchproject/open
 
 `ddev get sebastian-ehrling/ddev-opensearch`
 
+## What is OpenSearch?
+OpenSearch is a fork of the Elasticsearch search engine and the associated Kibana analytics platform. 
+As of version 7.11, Elasticsearch is no longer available under the free Apache license. This means that no further free use is possible for cloud providers.
+
 ## Configuration
 
 From within the container, the opensearch container is reached at hostname: "opensearch", port: 9200, so the server URL might be `http://opensearch:9200`. You can also use the "ddev.site" http and https urls to access it: `http://<projectname>.ddev.site:9200`, and `https://<projectname>.ddev.site:9201`
