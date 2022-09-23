@@ -64,12 +64,6 @@ jobs:
     - name: Download docker images
       run: | 
         mkdir junk && pushd junk && ddev config --auto && ddev debug download-images >/dev/null && ddev delete -Oy junk
-    - name: tmate debugging session
-      uses: mxschmitt/action-tmate@v3
-      with:
-        limit-access-to-actor: true
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}
 
     - name: tests
       run: bats tests
