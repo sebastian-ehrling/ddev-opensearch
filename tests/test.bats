@@ -31,8 +31,8 @@ teardown() {
 @test "install from release" {
   set -eu -o pipefail
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
-  echo "# ddev get drud/ddev-opensearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get drud/ddev-opensearch
+  echo "# ddev get sebastian-ehrling/ddev-opensearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
+  ddev get sebastian-ehrling/ddev-opensearch
   ddev restart
   ddev exec "curl -s opensearch:9200" | grep "${PROJNAME}-opensearch"
 }

@@ -4,7 +4,7 @@
 
 Uses [opensearch official image](https://hub.docker.com/r/opensearchproject/opensearch)
 
-`ddev get drud/ddev-opensearch`
+`ddev get sebastian-ehrling/ddev-opensearch`
 
 ## Configuration
 
