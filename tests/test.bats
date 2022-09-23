@@ -1,9 +1,9 @@
 setup() {
   set -eu -o pipefail
   export DIR="$( cd "$( dirname "$BATS_TEST_FILENAME" )" >/dev/null 2>&1 && pwd )/.."
-  export TESTDIR=~/tmp/testelasticsearch
+  export TESTDIR=~/tmp/testopensearch
   mkdir -p $TESTDIR
-  export PROJNAME=testelasticsearch
+  export PROJNAME=testopensearch
   export DDEV_NON_INTERACTIVE=true
   ddev delete -Oy ${PROJNAME} || true
   cd "${TESTDIR}"
@@ -25,14 +25,14 @@ teardown() {
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR}
   ddev restart
-  ddev exec "curl -s elasticsearch:9200" | grep "${PROJNAME}-elasticsearch"
+  ddev exec "curl -s opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
 
 @test "install from release" {
   set -eu -o pipefail
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
-  echo "# ddev get drud/ddev-elasticsearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get drud/ddev-elasticsearch
+  echo "# ddev get drud/ddev-opensearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
+  ddev get drud/ddev-opensearch
   ddev restart
-  ddev exec "curl -s elasticsearch:9200" | grep "${PROJNAME}-elasticsearch"
+  ddev exec "curl -s opensearch:9200" | grep "${PROJNAME}-opensearch"
 }

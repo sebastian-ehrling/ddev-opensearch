@@ -1,7 +1,7 @@
-name: ddev-elasticsearch
+name: ddev-opensearch
 
 pre_install_actions:
 
 # list of files and directories listed that are copied into project .ddev directory
 project_files:
-- docker-compose.elasticsearch.yaml
+- docker-compose.opensearch.yaml
