@@ -25,6 +25,7 @@ teardown() {
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR}
   ddev restart
+  ddev restart
   ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
 
@@ -33,6 +34,7 @@ teardown() {
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
   echo "# ddev get sebastian-ehrling/ddev-opensearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get sebastian-ehrling/ddev-opensearch
+  ddev restart
   ddev restart
   ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
