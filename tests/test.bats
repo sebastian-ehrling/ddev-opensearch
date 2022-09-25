@@ -25,7 +25,7 @@ teardown() {
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR}
   ddev restart
-  ddev exec "curl -s opensearch:9200" | grep "${PROJNAME}-opensearch"
+  ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
 
 @test "install from release" {
@@ -34,5 +34,5 @@ teardown() {
   echo "# ddev get sebastian-ehrling/ddev-opensearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get sebastian-ehrling/ddev-opensearch
   ddev restart
-  ddev exec "curl -s opensearch:9200" | grep "${PROJNAME}-opensearch"
+  ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
