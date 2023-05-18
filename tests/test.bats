@@ -35,8 +35,7 @@ teardown() {
   echo "# ddev get sebastian-ehrling/ddev-opensearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get sebastian-ehrling/ddev-opensearch
   ddev restart
-#  ddev restart
-  ddev describe
+  ddev describe | grep "opensearch  OK"
   curl -v https://testopensearch.ddev.site:9201
   curl -v https://testopensearch.ddev.site:9201 | grep "${PROJNAME}-opensearch
   #ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
