@@ -36,5 +36,7 @@ teardown() {
   ddev get sebastian-ehrling/ddev-opensearch
   ddev restart
   ddev restart
+  ddev describe
+  ddev exec "curl -v opensearch:9200"
   ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
