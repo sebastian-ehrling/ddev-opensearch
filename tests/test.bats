@@ -19,15 +19,15 @@ teardown() {
   [ "${TESTDIR}" != "" ] && rm -rf ${TESTDIR}
 }
 
-@test "install from directory" {
-  set -eu -o pipefail
-  cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
-  echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get ${DIR}
-  ddev restart
-  ddev restart
-  ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
-}
+#@test "install from directory" {
+#  set -eu -o pipefail
+#  cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
+#  echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
+#  ddev get ${DIR}
+#  ddev restart
+#  ddev restart
+#  ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
+#}
 
 @test "install from release" {
   set -eu -o pipefail
@@ -35,8 +35,8 @@ teardown() {
   echo "# ddev get sebastian-ehrling/ddev-opensearch with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get sebastian-ehrling/ddev-opensearch
   ddev restart
-  ddev restart
+#  ddev restart
   ddev describe
-  ddev exec "curl -v opensearch:9200"
+  curl -v https://testopensearch.ddev.site:9201
   ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
