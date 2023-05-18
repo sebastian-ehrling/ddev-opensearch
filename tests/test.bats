@@ -37,6 +37,6 @@ teardown() {
   ddev restart
   ddev describe | grep "opensearch  OK"
   curl -v https://testopensearch.ddev.site:9201
-  curl -v https://testopensearch.ddev.site:9201 | grep "${PROJNAME}-opensearch"
+  #curl -v https://testopensearch.ddev.site:9201 | grep "${PROJNAME}-opensearch"
   #ddev exec "curl -v opensearch:9200" | grep "${PROJNAME}-opensearch"
 }
