@@ -33,7 +33,8 @@ jobs:
 
     strategy:
       matrix:
-        ddev_version: [stable, HEAD]
+        ddev_version: [HEAD]
+      #  ddev_version: [stable, HEAD]
       #        ddev_version: [stable, edge, HEAD, P]
       fail-fast: false
 
